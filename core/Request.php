@@ -1,7 +1,5 @@
-
-<?php 
-
-
+<?php
+namespace Core;
 
 class Request 
 {
@@ -9,9 +7,8 @@ class Request
   {
     # with trinary Operator
     // return $_GET[$key] = ($value) ? $value :  the $value is removed as a short cut for rinary Operator next line
-    // return $_GET[$key] = ($value) ? $value : (isset($_GET[$key]) ? $_GET[$key] : $value);
-
-    return $_GET[$key] = ($value) ?: (isset($_GET[$key]) ?: $value);
+    return $_GET[$key] = ($value) ?  : (isset($_GET[$key]) ? $_GET[$key] : $value);
+   
 
     #normal if condition
     //  if($value)
@@ -24,6 +21,7 @@ class Request
     //   }
     //   return $value;
   }
+
   public function post(string $key , $value = null)
   {
     return $_POST[$key] = ($value) ? $value : (isset($_POST[$key]) ? $_GET[$key] : $value);
@@ -40,6 +38,7 @@ class Request
   {
     return $_SERVER[$key];
   }
+
   public function serverAll()
   {
     // return $_SERVER;

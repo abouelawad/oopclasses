@@ -1,10 +1,20 @@
-<?php  
+<?php
 
-require_once "core/Request.php";
+require_once "autoload.php";
 
-$_GET['name'] = "kareem";
+use Core\Request;
+use Core\Session;
 
-$req = new Request;
-echo( $req->get('kareem',25));
+// $_GET['name'] = "kareem";
 
-// echo $_SERVER['QUERY_STRING'];
+// $req = new Request;
+// echo( $req->get('name'));
+
+$_SESSION['name'] = "kareem";
+
+$session = new Session();
+$session ->set('type', 'male');
+//  $session->get("name");
+ echo $session->flash("type");
+ echo "<br>";
+ var_dump($session->has('type'));
