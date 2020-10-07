@@ -8,4 +8,5 @@ function getClassFile($classFullName)
  $className = end($temp);
 
   require_once "core/$className.php";
+  require_once "home/$className.php";
 }

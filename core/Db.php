@@ -25,8 +25,21 @@ echo "new conncetion created";
       die("Connection failed: " . $this->conn->connect_error);
     }
     echo "Connected successfully";
-
   }
+
+//   public function __construct()
+//   {
+// echo "new conncetion created";
+//     // Create connection
+//     // $conn = new mysqli($servername, $username, $password ,$dbname);
+//     $this->conn = new mysqli("localhost", "root", "" ,"oop_classes");
+
+//     // Check connection
+//     if ($this->conn->connect_error) {
+//       die("Connection failed: " . $this->conn->connect_error);
+//     }
+//     echo "Connected successfully";
+//   }
 
   public static function getInstance()
   {
@@ -41,14 +54,14 @@ echo "new conncetion created";
   public function table(string $table)
   {
     $this->table = $table;
-    $this->query = '';
+    // $this->query = '';
     return $this;
   }
 
 
   public function select(string $fields="*")
   {
-    $this->query = "SELECT $fields FROM $this->table ";
+    $this->query = "SELECT $fields FROM $this->table";
     return $this;
 
   }
