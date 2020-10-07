@@ -4,17 +4,26 @@ require_once "autoload.php";
 
 use Core\Request;
 use Core\Session;
+use Core\Db;
 
-// $_GET['name'] = "kareem";
+#old way to instanriate object 
+// $db = new Db;
 
-// $req = new Request;
-// echo( $req->get('name'));
+#SINGELTON
+$db = Db::getInstance();
 
-$_SESSION['name'] = "kareem";
 
-$session = new Session();
-$session ->set('type', 'male');
-//  $session->get("name");
- echo $session->flash("type");
- echo "<br>";
- var_dump($session->has('type'));
+
+
+echo '<pre>';
+print_r(
+        $db->table("posts")
+           ->select()
+          //  ->where("id", "<=", "4")
+          //  ->andWhere("title", "like", "%what%")
+          //  ->orderBy("id", "desc")
+           
+           ->getOne()
+);
+echo '</pre>' ;
+
