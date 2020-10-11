@@ -1,6 +1,13 @@
 <?php
-require_once "core/Request.php";
+// require_once "core/Request.php";
+// require_once 'autoload.php';
 
-$_GET['name'] = "ali";
-$_GET['age'] = 15;
+require_once 'vendor/autoload.php';
+
+use Core\Request;
+use App\Controllers\File ;
+// $req = new Request;
+
+$file = new File;
+
 

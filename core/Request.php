@@ -1,14 +1,20 @@
 <?php
+
 namespace Core;
 
-class Request 
+class Request
 {
-  public function get(string $key , $value = null)
+
+  public function __construct()
+  {
+    echo __CLASS__;
+  }
+  public function get(string $key, $value = null)
   {
     # with trinary Operator
     // return $_GET[$key] = ($value) ? $value :  the $value is removed as a short cut for rinary Operator next line
-    return $_GET[$key] = ($value) ?  : (isset($_GET[$key]) ? $_GET[$key] : $value);
-   
+    return $_GET[$key] = ($value) ?: (isset($_GET[$key]) ? $_GET[$key] : $value);
+
 
     #normal if condition
     //  if($value)
@@ -22,7 +28,7 @@ class Request
     //   return $value;
   }
 
-  public function post(string $key , $value = null)
+  public function post(string $key, $value = null)
   {
     return $_POST[$key] = ($value) ? $value : (isset($_POST[$key]) ? $_GET[$key] : $value);
     // short hand trinaty operation
