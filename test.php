@@ -5,7 +5,7 @@
 require_once 'vendor/autoload.php';
 
 use Core\Request;
-use App\Controllers\File ;
+use Core\File ;
 // $req = new Request;
 
 $file = new File;

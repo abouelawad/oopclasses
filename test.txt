@@ -1,0 +1,18 @@
+validate::make(validation)
+
+
+[
+  [
+    "name" => "name",
+    "value" => "Ali",
+    "rules" => "required |str"
+  ],
+
+  [
+    "name" => "age",
+    "value" => "25",
+    "rules" => "required |numirec"
+  ]
+
+
+]
