@@ -58,29 +58,33 @@ class App
       print_r($single_route);
       echo '</pre>' ;
       */
-      if ($requested_url == $single_route and $requested_method == $info['method']) {
-        $this->controller = $info['controller'];
-        $this->action = $info['action'];
-        $this->method = $info['method'];
-        break;
+      if ($requested_url == $single_route){
+          if( $requested_method == $info['method']) {
+            $this->controller = $info['controller'];
+            $this->action = $info['action'];
+            return true ;
+          }else{
+          die("405 method does not exist");
+          }
+        /* //!deprecated if statement (wrong else statement)
+        // if ($requested_url != $single_route) {
+        //   die('404 url not found');
+        // }
+        // elseif ($requested_method != $info['method']) {
+        //   die('405 method not allowed');
+        // }
+        // else {
+        //   $this->controller = $info['controller'];
+        //   $this->method = $info['method'];
+        // }
+        */
       }
-      /* //!deprecated if statement (wrong else statement)
-      // if ($requested_url != $single_route) {
-      //   die('404 url not found');
-      // }
-      // elseif ($requested_method != $info['method']) {
-      //   die('405 method not allowed');
-      // }
-      // else {
-      //   $this->controller = $info['controller'];
-      //   $this->method = $info['method'];
-      // }
-      */
+      // echo $this->controller;
+      // echo '<br />';
+      // echo $this->action ;
+      // echo '<br />';
     }
-    echo $this->controller;
-    echo '<br />';
-    echo $this->action ;
-    echo '<br />';
+    die("404  not found");
   }
 
   public function render()
