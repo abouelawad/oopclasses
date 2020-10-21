@@ -1,23 +1,51 @@
 <?php
 
-require_once "../core/Request.php";
+use Core\Request;
+use Core\App;
+
+require_once "../vendor/autoload.php";
 require_once "../core/Route.php";
-
-// $_GET['name'] = "kareem";
-
-// $req = new Request;
-// echo( $req->get('age' , 25));
+require_once "../routes/web.php";
+require_once "../core/Request.php";
 
 // echo $_SERVER['QUERY_STRING'];
+echo '<br />';
 
-$route = new Route;
-$route->get("posts/index" , "postController@index");
-$route->get("posts/create" , "postController@create");
-$route->post("posts/store" , "postController@store");
+$app = new App();
 
 
-echo"<pre>";
-print_r($route->routes);
 
-echo"</pre>";
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
+
+
+<?php
+// echo '<pre>';
+// print_r($route->getRoutingTable());
+// echo '</pre>' ;
+
+
+// echo"<pre>";
+// print_r($route->routes);
+
+// echo"</pre>";
+?>

@@ -6,27 +6,35 @@ use Core\Validation\Validator;
 $req = [
         [
           "name" => "name",
-          "value" => "ds" ,
+          "value" => "" ,
           "rules" => "required|str"
         ],
 
         [
           "name" => "age",
-          "value" => 25,
+          "value" => "sgg",
           "rules" => "required|numeric"
         ],
 
         [
           "name" => "email",
-          "value" => "a@a",
+          "value" => "a@a.com",
           "rules" => "required|email"
         ]
 
   ];
 
-  $errors = Validator::make($req);
+  // $validator =new Validator();
+  // $errors = $validator->make($req);
 
+$errors = Validator::make($req);  
+
+
+ 
   echo '<pre>';
-  print_r($errors);
+    print_r($errors);
   echo '</pre>' ;
+  
 
+
+  

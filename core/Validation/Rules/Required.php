@@ -16,7 +16,8 @@ class Required implements ValidationRule
 
   public function validate()
   {
-    if(strlen($this->name === 0))
+    // echo strlen($this->value);
+    if(strlen($this->value) == 0)
     {
       return "$this->name is required";
     }

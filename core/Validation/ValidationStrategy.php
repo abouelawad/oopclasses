@@ -2,9 +2,8 @@
 
 namespace Core\Validation;
 
-
 #to connect between the different paths interface(ValidationRule) and (ValidationStrategy)
-use Core\Validation\Rules\ValidationRule; 
+use Core\Validation\Rules\ValidationRule; #ValidationRule is the interface
 
 require_once "Rules/ValidationRule.php";
 

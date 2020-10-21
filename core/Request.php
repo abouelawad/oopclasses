@@ -5,14 +5,14 @@ namespace Core;
 class Request
 {
 
-  public function __construct()
-  {
-    echo __CLASS__;
-  }
+  // public function __construct()
+  // {
+  //   echo __CLASS__;
+  // }
   public function get(string $key, $value = null)
   {
     # with trinary Operator
-    // return $_GET[$key] = ($value) ? $value :  the $value is removed as a short cut for rinary Operator next line
+    // return $_GET[$key] = ($value) ? $value :  the $value is removed as a short cut for trinary Operator next line
     return $_GET[$key] = ($value) ?: (isset($_GET[$key]) ? $_GET[$key] : $value);
 
 
@@ -31,8 +31,8 @@ class Request
   public function post(string $key, $value = null)
   {
     return $_POST[$key] = ($value) ? $value : (isset($_POST[$key]) ? $_GET[$key] : $value);
-    // short hand trinaty operation
-    return $_POST[$key] = ($value) ?: (isset($_POST[$key]) ?: $value);
+    // short hand trinary operation
+    // return $_POST[$key] = ($value) ?: (isset($_POST[$key]) ?: $value);
   }
 
   public function cookie(string $key, $value = null)

@@ -2,7 +2,7 @@
 
 namespace Core\Validation\Rules;
 
-require_once "ValidationRule.php";
+// require_once "ValidationRule.php";
 
 
 class Email implements ValidationRule
