@@ -9,8 +9,9 @@ class Route
   public function get(string $url, string $controller_action)
   {
     $controller_action_arr = explode("@", $controller_action);
+    $url_regex = "/^" . str_replace("/", '\/' , $url)  . "$/";
 
-    $this->routingTable[$url] =
+    $this->routingTable[$url_regex] =
       [
         'method' => 'GET',
         'controller' => $controller_action_arr[0],
@@ -21,8 +22,9 @@ class Route
   public function post(string $url, string $controller_action)
   {
     $controller_action_arr = explode("@", $controller_action);
+    $url_regex = "/^" . str_replace("/", '\/' , $url)  . "$/";
 
-    $this->routingTable[$url] =
+    $this->routingTable[$url_regex] =
       [
         'method' => 'POST',
         'controller' => $controller_action_arr[0],

@@ -6,7 +6,7 @@ namespace Core;
 class App
 {
 
-  private $controller, $action ;
+  private $controller, $action , $params ;
 
   public function __construct()
   {
@@ -51,17 +51,19 @@ class App
     print_r($all_routes);
     echo '</pre>';
 
-    foreach ($all_routes as $single_route => $info) {
+    foreach ($all_routes as $url => $info) {
 
-      /* !//? to test $single_route returns
+      /* !//? to test $url returns
       echo '<pre>';
-      print_r($single_route);
+      print_r($url);
       echo '</pre>' ;
       */
-      if ($requested_url == $single_route){
+      // // if ($requested_url == $url){
+      if (preg_match($url,$requested_url , $matches )){
           if( $requested_method == $info['method']) {
             $this->controller = $info['controller'];
             $this->action = $info['action'];
+            $this->params = array_slice($matches , 1);
             return true ;
           }else{
           die("405 method does not exist");
@@ -89,21 +91,25 @@ class App
 
   public function render()
   {
+    //add namespaces to the class name 
     $controller_name = "App\Controllers\\" . $this->controller;
     if (class_exists($controller_name)) {
       $controller_object = new $controller_name;
 
       if (method_exists($controller_object, $this->action)) {
         //call the method
-        $action_name = $this->action;
-        $controller_object->$action_name();
+        // //$action_name = $this->action;
+        // //$controller_object->$action_name();
+        call_user_func_array([$controller_name , $this->action] , $this->params);
+
+
       } else {
-        echo $this->action .  1 . '<br />'; 
-        die("$this->action doesn't exist");
+        // echo $this->action .  1 . '<br />'; 
+        die("$this->action action doesn't exist");
       }
     } else {
-      echo $this->controller .  1 . '<br />';
-      die("$this->controller  doesn't exist");
+      // echo $this->controller .  1 . '<br />';
+      die("$this->controller controller doesn't exist");
     }
   }
 }

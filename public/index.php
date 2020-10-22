@@ -11,6 +11,7 @@ require_once "../core/Request.php";
 // echo $_SERVER['QUERY_STRING'];
 echo '<br />';
 
+
 $app = new App();
 
 
