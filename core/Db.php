@@ -29,7 +29,7 @@ echo "new connection created";
 
 //   public function __construct()
 //   {
-// echo "new conncetion created";
+// echo "new connection created";
 //     // Create connection
 //     // $conn = new mysqli($servername, $username, $password ,$dbname);
 //     $this->conn = new mysqli("localhost", "root", "" ,"oop_classes");
@@ -169,4 +169,8 @@ echo "new connection created";
     return $this->conn->query($this->query);
   }
 
+  public function testfunc()
+  {
+    test func;
+  }
 }
