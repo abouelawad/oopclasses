@@ -169,8 +169,4 @@ echo "new connection created";
     return $this->conn->query($this->query);
   }
 
-  public function testfunc()
-  {
-    test func;
-  }
 }
