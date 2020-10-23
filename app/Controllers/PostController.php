@@ -1,23 +1,27 @@
-<?php 
+<?php
 
 namespace App\Controllers;
 
-class PostController 
+use App\Models\Post;
+use Core\Db;
+use Core\View;
+
+class PostController
 {
-public function index()
-{
-  echo 'hello from PostController index';
-}
-public function create()
-{
-  echo 'hello from PostController create';
-}
-public function store($id)
-{
-  echo "hello from PostController store with $id";
-}
+  public function index()
+  {
+    // echo 'hello from PostController index';
+    $data['posts'] = Post::connectTable()->select()->get();
 
 
-
-
+    return View::load('posts/index', $data);
+  }
+  public function create()
+  {
+    echo 'hello from PostController create';
+  }
+  public function store($id)
+  {
+    echo "hello from PostController store with $id";
+  }
 }

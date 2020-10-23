@@ -28,10 +28,12 @@ class App
     global $route;
     $request = new Request;
     $requested_url = $request->server('QUERY_STRING');
-    echo $requested_url;
-    echo '<br />';
+    //!TEST
+    // echo $requested_url;
+    // echo '<br />';
     $requested_method = $request->server('REQUEST_METHOD');
-    echo $requested_method;
+    //! TEST
+    // echo $requested_method;
     /* 
     // $server_all = $request->serverAll();
     // echo '<pre>';
@@ -46,10 +48,10 @@ class App
     ! ezzay ana shayf Class Web and Route min 3'eer use key word 
     ? routes/web.php & Core/Route.php
     */
-
-    echo '<pre>';
-    print_r($all_routes);
-    echo '</pre>';
+    //!TEST
+    // echo '<pre>';
+    // print_r($all_routes);
+    // echo '</pre>';
 
     foreach ($all_routes as $url => $info) {
 
@@ -100,6 +102,7 @@ class App
         //call the method
         // //$action_name = $this->action;
         // //$controller_object->$action_name();
+
         call_user_func_array([$controller_name , $this->action] , $this->params);
 
 

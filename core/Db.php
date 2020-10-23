@@ -15,7 +15,7 @@ class Db
 
   private function __construct()
   {
-echo "new conncetion created";
+echo "new connection created"; 
     // Create connection
     // $conn = new mysqli($servername, $username, $password ,$dbname);
     $this->conn = new mysqli("localhost", "root", "" ,"oop_classes");
