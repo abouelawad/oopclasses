@@ -42,7 +42,8 @@ class Request
 
   public function server(string $key)
   {
-    return $_SERVER[$key];
+    return (strtolower($_SERVER[$key]));
+    // return($_SERVER[$key]);
   }
 
   public function serverAll()
@@ -53,3 +54,4 @@ class Request
     }
   }
 }
+

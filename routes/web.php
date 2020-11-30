@@ -9,6 +9,7 @@ $str = '([\w-]+)';
 
 $route->get("", "HomeController@index");
 $route->get("posts/index", "PostController@index");
+$route->get("posts/create", "PostController@create");
 $route->get("posts/show/$num", "PostController@show");
-$route->get("posts/store/$num", "PostController@store");
+$route->post("posts/store/$num", "PostController@store");
 $route->get("comments/index", "PostController@index");

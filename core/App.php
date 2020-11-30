@@ -2,7 +2,7 @@
 
 namespace Core;
 
-// require_once "../routes/web.php";
+// require_once "../routes/web.php"; //*Not needed because of autoloading
 class App
 {
 
@@ -62,7 +62,7 @@ class App
       */
       // // if ($requested_url == $url){
       if (preg_match($url,$requested_url , $matches )){
-          if( $requested_method == $info['method']) {
+          if( $requested_method == strtolower($info['method'])) {
             $this->controller = $info['controller'];
             $this->action = $info['action'];
             $this->params = array_slice($matches , 1);
@@ -93,17 +93,20 @@ class App
 
   public function render()
   {
-    //add namespaces to the class name 
+    //! ADD NameSpaces To The Class Name 
     $controller_name = "App\Controllers\\" . $this->controller;
-    if (class_exists($controller_name)) {
+    // $controller_name =  $this->controller;
+    if (class_exists($controller_name )) {
       $controller_object = new $controller_name;
 
       if (method_exists($controller_object, $this->action)) {
-        //call the method
-        // //$action_name = $this->action;
-        // //$controller_object->$action_name();
+        // call the method
+        // // $action_name = $this->action;
+        // // $controller_object->$action_name();
 
-        call_user_func_array([$controller_name , $this->action] , $this->params);
+        call_user_func_array([$controller_object , $this->action] , $this->params);
+        #OR WITH $CONTROLLER_NAME
+        // call_user_func_array([$controller_name , $this->action] , $this->params);
 
 
       } else {

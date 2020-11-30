@@ -15,7 +15,7 @@ class Db
 
   private function __construct()
   {
-echo "new connection created"; 
+    // echo "new connection created"; 
     // Create connection
     // $conn = new mysqli($servername, $username, $password ,$dbname);
     $this->conn = new mysqli("localhost", "root", "" ,"oop_classes");
@@ -24,22 +24,9 @@ echo "new connection created";
     if ($this->conn->connect_error) {
       die("Connection failed: " . $this->conn->connect_error);
     }
-    echo "Connected successfully";
+    // echo "Connected successfully";
   }
 
-//   public function __construct()
-//   {
-// echo "new connection created";
-//     // Create connection
-//     // $conn = new mysqli($servername, $username, $password ,$dbname);
-//     $this->conn = new mysqli("localhost", "root", "" ,"oop_classes");
-
-//     // Check connection
-//     if ($this->conn->connect_error) {
-//       die("Connection failed: " . $this->conn->connect_error);
-//     }
-//     echo "Connected successfully";
-//   }
 
   public static function getInstance()
   {

@@ -20,8 +20,8 @@ class PostController
   {
     echo 'hello from PostController create';
   }
-  public function store($id)
+  public function show($id)
   {
-    echo "hello from PostController store with $id";
+    echo "hello from PostController Show with $id";
   }
 }
